@@ -6,6 +6,7 @@ public class Zucchini : MonoBehaviour
 {
 
     [SerializeField] float speed;
+    [SerializeField] int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,14 @@ public class Zucchini : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Attacker")
+        {
+            other.gameObject.GetComponent<Health>().GiveDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
