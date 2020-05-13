@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health;
-    //[SerializeField] ParticleSystem  
+    [SerializeField] ParticleSystem deathEffect;
 
 
     public void GiveDamage(int damage)
@@ -14,7 +14,8 @@ public class Health : MonoBehaviour
 
         if(health <= 0)
         {
-            
+            ParticleSystem tmp = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(tmp.gameObject, 3f);
             Destroy(gameObject);
         }
     }
