@@ -41,7 +41,6 @@ public class Lizard : MonoBehaviour
 
             target = other.gameObject;
             myAnim.SetBool("IsAttacking", true);
-            SetSpeed(0f);
 
             // 2. 
             // - Lizard앞에 Collider를 설치하고, (Liazrd의 공격범위를 나타내는 Collider)
