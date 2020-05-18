@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 504544720924206582}
   - component: {fileID: 4767354797785988950}
   - component: {fileID: 8982108875925698162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Attacker
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 504544722007862394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lizard
   m_TagString: Attacker
   m_Icon: {fileID: 0}
