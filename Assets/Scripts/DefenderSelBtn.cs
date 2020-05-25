@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DefenderSelBtn : MonoBehaviour
 {
     [SerializeField] GameObject defender;
+    [SerializeField] public int cost;
 
     private DefenderSelBtn[] defenderSelBtn;
 
@@ -37,7 +38,7 @@ public class DefenderSelBtn : MonoBehaviour
 
         // PlayGrid에 defender 보내줘서 PlayGrid의 defender를 Set해줘야합니다.
         // FindObjectOfType<PlayGrid>().defender = defender;
-        playGrid.SetDefender(defender);
+        playGrid.SetDefender(defender, this);
 
         isSelected = true;
 
@@ -48,12 +49,15 @@ public class DefenderSelBtn : MonoBehaviour
     public void OnDeselected()
     {
         // PlayGrid에 null 보내줘서 PlayGrid의 defender를 비워줘야합니다.
-        playGrid.SetDefender(null);
+        playGrid.SetDefender(null, null);
 
         // 자식 게임오브젝트 (image)를 black으로 만듭니다.
         btnImage.color = Color.black;
 
         isSelected = false;
     }
+
+
+
 
 }

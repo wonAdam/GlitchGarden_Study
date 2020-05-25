@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayGrid : MonoBehaviour
 {
     [SerializeField] GameObject defender;
+    public DefenderSelBtn defenderSelBtn;
+    ResourceManager resourceManager;
+
+    private void Start() {
+        resourceManager = FindObjectOfType<ResourceManager>();
+    }
     private void OnMouseDown() {
         
         if(defender == null) return;
@@ -15,13 +21,18 @@ public class PlayGrid : MonoBehaviour
 
         Vector3 convertedPos = new Vector3(Mathf.Round(worldPoint.x), Mathf.Round(worldPoint.y), 0f);
 
-        Instantiate(defender, convertedPos, Quaternion.identity);
+        if(resourceManager.IsEnoughToInstantiate(defenderSelBtn.cost))
+        {
+            Instantiate(defender, convertedPos, Quaternion.identity);
+            resourceManager.UseStar(defenderSelBtn.cost);
+        }
     }
 
 
-    public void SetDefender(GameObject _defender)
+    public void SetDefender(GameObject _defender, DefenderSelBtn _defenderSelBtn)
     {
         defender = _defender;
+        defenderSelBtn = _defenderSelBtn;
     }
 
 
